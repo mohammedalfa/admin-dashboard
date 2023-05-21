@@ -1,14 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 html, body {
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 * {
   padding: 0;
   margin: 0;
+  box-sizing: inherit;
+  font-family: inherit;
 }
 
 .content {
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template: 1fr 5fr / 1fr 4fr;
   grid-template-areas: 
@@ -16,19 +24,214 @@ html, body {
     "sidebar content";
 }
 
-div {
-  width: 100%;
-  height: 100%;
-}
-
 .header {
   grid-area: header;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding: 10px;
+  box-shadow: 0 1px 4px #999;
+  z-index: 1;
+}
+
+.top {
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.top label img {
+  width: 25px;
+  height: 25px;
+}
+
+.top input[type="search"] {
+  flex: 1;
+  margin-right: 60px;
+  border: 0;
+  background-color: #e2e8f0;
+  border-radius: 16px;
+  height: 32px;
+  padding: 5px 10px;
+}
+
+.top #notifications {
+  width: 25px;
+  height: 25px;
+}
+
+.top #profile {
+  width: 40px;
+  height: 40px;
+}
+
+.top .username {
+  font-weight: 700;
+}
+
+.bottom {  
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.bottom img {
+  width: 60px;
+  height: 60px;
+}
+
+.bottom .greeting {
+  font-weight: 700;
+  font-size: 1.5rem;
+  flex: 1
+}
+
+.bottom .greeting p:first-child {
+  font-size: 0.8rem;
+}
+
+.bottom ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.bottom ul button {
+  border: 0;
+  padding: 8px 24px;
+  background-color: #1992d4;
+  border-radius: 16px;
+  color: #fff;
+  font-weight: 700;
 }
 
 .sidebar {
   grid-area: sidebar;
+  background-color: #1992d4;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  box-shadow: 1px 0 4px #999;
+  z-index: 2;
+}
+
+.sidebar img {
+  filter: invert(100%);
+  width: 25px;
+  height: 25px;
+}
+
+.sidebar .dashboard {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar .dashboard img {
+  width: 50px;
+  height: 50px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
 }
 
 .main-content {
   grid-area: content;
+  background-color: #e2e8f0;
+  padding: 36px 24px;
+  font-size: 1.2rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+    "projects announcements"
+    "projects trending";
+}
+
+.main-content > div {
+  margin: 16px;
+}
+
+.main-content .projects {
+  grid-area: projects;
+}
+
+.projects .cards {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  gap: 24px;
+}
+
+.projects .cards .card {
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 8px;
+  height: 100%;
+  box-shadow: 1px 1px 2px 2px #aaa;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+}
+
+.cards .card .handle {
+  position: absolute;
+  height: 100%;
+  width: 12px;
+  background-color: #efb428;
+  left: 0;
+  top: 0;
+}
+
+.card .text .heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.card .text .body {
+  font-size: 1rem;
+  color: #636363;
+}
+
+.card .buttons {
+  place-self: end;
+  display: flex;
+  gap: 16px;
+}
+
+.card .buttons button {
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: none;
+}
+
+.main-content .announcements {
+  grid-area: announcements;
+
+}
+
+.main-content .trending {
+  grid-area: trending;
 }
